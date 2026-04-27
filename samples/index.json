@@ -1,0 +1,142 @@
+[
+  {
+    "site_idx": 0,
+    "compound": "cytochalasin b",
+    "concentration": 10.0,
+    "moa": "Actin disruptors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 1,
+    "compound": "cytochalasin b",
+    "concentration": 10.0,
+    "moa": "Actin disruptors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 2,
+    "compound": "cytochalasin b",
+    "concentration": 10.0,
+    "moa": "Actin disruptors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 3,
+    "compound": "cytochalasin b",
+    "concentration": 10.0,
+    "moa": "Actin disruptors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 4,
+    "compound": "cytochalasin b",
+    "concentration": 10.0,
+    "moa": "Actin disruptors",
+    "plate": "Week1_22141"
+  },
+  {
+    "site_idx": 5,
+    "compound": "az-a",
+    "concentration": 0.1,
+    "moa": "Aurora kinase inhibitors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 6,
+    "compound": "az-a",
+    "concentration": 0.1,
+    "moa": "Aurora kinase inhibitors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 7,
+    "compound": "az-a",
+    "concentration": 0.1,
+    "moa": "Aurora kinase inhibitors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 8,
+    "compound": "az-a",
+    "concentration": 0.1,
+    "moa": "Aurora kinase inhibitors",
+    "plate": "Week1_22123"
+  },
+  {
+    "site_idx": 9,
+    "compound": "az-a",
+    "concentration": 0.1,
+    "moa": "Aurora kinase inhibitors",
+    "plate": "Week1_22141"
+  },
+  {
+    "site_idx": 10,
+    "compound": "colchicine",
+    "concentration": 0.03,
+    "moa": "Microtubule destabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 11,
+    "compound": "colchicine",
+    "concentration": 0.03,
+    "moa": "Microtubule destabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 12,
+    "compound": "colchicine",
+    "concentration": 0.03,
+    "moa": "Microtubule destabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 13,
+    "compound": "colchicine",
+    "concentration": 0.03,
+    "moa": "Microtubule destabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 14,
+    "compound": "colchicine",
+    "concentration": 0.03,
+    "moa": "Microtubule destabilizers",
+    "plate": "Week1_22381"
+  },
+  {
+    "site_idx": 15,
+    "compound": "epothilone b",
+    "concentration": 0.1,
+    "moa": "Microtubule stabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 16,
+    "compound": "epothilone b",
+    "concentration": 0.1,
+    "moa": "Microtubule stabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 17,
+    "compound": "epothilone b",
+    "concentration": 0.1,
+    "moa": "Microtubule stabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 18,
+    "compound": "epothilone b",
+    "concentration": 0.1,
+    "moa": "Microtubule stabilizers",
+    "plate": "Week1_22361"
+  },
+  {
+    "site_idx": 19,
+    "compound": "epothilone b",
+    "concentration": 0.1,
+    "moa": "Microtubule stabilizers",
+    "plate": "Week1_22381"
+  }
+]
