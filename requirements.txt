@@ -1,0 +1,12 @@
+﻿torch==2.5.1+cu118
+torchvision==0.20.1+cu118
+streamlit==1.56.0
+opencv-python-headless==4.13.0.92
+numpy==2.2.6
+pandas==2.3.3
+matplotlib==3.10.8
+scikit-learn==1.7.2
+tifffile==2025.5.10
+reportlab==4.4.10
+Pillow==12.1.1
+scipy==1.15.3
