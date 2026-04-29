@@ -1,66 +1,204 @@
-Multi-Modal Fluorescence Microscopy Analysis Pipeline
-
-Overview
-This project predicts the Mechanism of Action (MoA) of drugs from fluorescence microscopy images of human breast cancer cells (MCF-7) using a multi-modal deep learning pipeline trained on the BBBC021 dataset from the Broad Institute. The system combines a ResNet18 image branch with a synthetic omics MLP branch, fused together to classify drug mechanisms from raw cell imaging data.
-
-Dataset
-BBBC021 (Broad Bioimage Benchmark Collection) — fluorescence microscopy images of MCF-7 human breast cancer cells treated with 103 chemical compounds across 12 mechanism of action classes. This project uses Week1 data (372 sites, 4 MoA classes, compound-level train/val split).
-MoA ClassSitesMicrotubule stabilizers216Aurora kinase inhibitors72Actin disruptors48Microtubule destabilizers36Total372
-
-Pipeline
-
-Raw .tif fluorescence images (DAPI, Tubulin, Actin channels)
-Channel-wise percentile normalization
-Resize to 256x256
-U-Net nuclei segmentation using Otsu pseudo masks
-Morphological and intensity feature extraction
-Multi-modal fusion (ResNet18 CNN + MLP omics branch)
-MoA classification (4 classes)
-GradCAM explainability visualization
-PDF report generation
-Streamlit deployment on Hugging Face Spaces
 
 
-Model Architecture
-BranchArchitectureOutputImage branchResNet18 pretrained (ImageNet) + FC256-dim embeddingOmics branchMLP (64-dim synthetic omics)128-dim embeddingFusionConcat(384) → FC(256) → FC(128) → FC(4)MoA class
+# Drug Mechanism Prediction from Cell Images using AI
 
-Performance
-MetricValueValidation accuracy80.6%Weighted F1 score0.867Training sites324Validation sites48Train/val split strategyCompound-levelTraining images972 (324 sites × 3 channels)Validation images144 (48 sites × 3 channels)
+**Live App:** [https://ranjith445-bbbc021-moa-predictor.hf.space](https://ranjith445-bbbc021-moa-predictor.hf.space)
 
-App Features
+---
 
-Preloaded sample images from BBBC021 dataset
-MoA prediction with confidence scores per class
-GradCAM visualization showing which image regions drove the prediction
-Downloadable PDF report with full analysis
-Deployed on Hugging Face Spaces via Docker
+## What is this project about?
+
+When scientists develop new medicines, they need to understand **how a drug affects cells**.
+This is called the **Mechanism of Action (MoA)**.
+
+To study this, they take **microscope images of human cells** after applying different drugs.
+
+* Each drug changes the cells in a different way
+* These changes can be seen in images
+* But analyzing thousands of images manually is slow
+
+This project builds an **AI system that can study these images and predict how a drug works**.
+
+---
+
+## What does this system do?
+
+This system:
+
+* Takes microscope images of cells
+* Analyzes how the cells look after drug treatment
+* Predicts the **type of effect (MoA)** of the drug
+* Shows **which parts of the image influenced the decision**
+* Generates a **report with the results**
+
+---
+
+## How does it work (simple explanation)
+
+The system looks at the images in a step-by-step way:
+
+### 1. Reads the cell images
+
+Each image has 3 types of information:
+
+* Cell nucleus (DNA)
+* Cell structure (tubulin)
+* Cell shape (actin)
+
+---
+
+### 2. Cleans and prepares the image
+
+* Adjusts brightness and contrast
+* Resizes the image
+* Identifies important parts like the nucleus
+
+---
+
+### 3. Extracts useful patterns
+
+The system looks for:
+
+* Shape of cells
+* Size and structure
+* Intensity (brightness patterns)
+
+---
+
+### 4. Uses two types of AI together
+
+**Image model (ResNet18)**
+
+* Looks at the image patterns
+* Learns visual features
+
+**Data model (MLP)**
+
+* Uses additional numerical information (synthetic omics data)
+
+---
+
+### 5. Combines both
+
+* Both models share their understanding
+* The system combines them
+* Makes the final prediction
+
+---
+
+### 6. Predicts drug effect
+
+It classifies the drug into one of these types:
+
+* Microtubule stabilizers
+* Microtubule destabilizers
+* Aurora kinase inhibitors
+* Actin disruptors
+
+---
+
+## What results does it give?
+
+* Accuracy: 80.6%
+* F1 Score: 0.867
+
+This shows good performance for a research-level demonstration.
+
+---
+
+## What data was used?
+
+* Dataset: BBBC021 (from Broad Institute)
+* Images of breast cancer cells (MCF-7)
+
+For this project:
+
+* 372 image sites used
+* 4 drug effect classes
+* 972 training images
+* 144 validation images
+
+---
+
+## What makes this project special?
+
+### Combines multiple types of data
+
+* Image data
+* Additional numerical data
+
+### Shows explanation
+
+* Highlights which parts of the image influenced the result
+
+### Generates reports
+
+* Creates a downloadable PDF with full analysis
+
+---
+
+## Features of the application
+
+* Select sample cell images
+* Predict drug mechanism
+* View confidence scores
+* See highlighted important regions (GradCAM)
+* Download PDF report
+
+---
+
+## How to use
+
+1. Open the web app
+2. Select an image from the list
+3. Click “Run Prediction”
+4. View the results and explanation
+5. Download the report if needed
+
+---
+
+## Important Note
+
+* This model is trained on a **limited dataset (Week 1 subset only)**
+* Uses **synthetic omics data**, not real biological data
+
+This project is meant for **learning and demonstration**.
+
+---
+
+## Limitations
+
+* Only 4 drug classes used (out of 12 total)
+* Not trained on full dataset
+* Not validated for real-world drug research
+
+---
+
+## Future Improvements
+
+* Use full dataset (14,400 images)
+* Add real gene expression data
+* Improve accuracy and robustness
+
+---
+
+## Disclaimer
+
+This project is for educational and research purposes only.
+It should not be used for medical or pharmaceutical decisions.
+
+---
+
+## One-Line Summary
+
+An AI system that studies cell images to predict how a drug affects cells and explains its decision.
+
+---
+
+## Author
+
+Built by M. Ranjith Kumar as a biomedical AI portfolio project.
+
+---
 
 
-Technologies
-CategoryToolsDeep learningPyTorch, torchvision (ResNet18)Image processingOpenCV, scikit-image, tifffileFeature extractionscikit-learn, scipy, NumPyDeploymentStreamlit, Docker, Hugging Face SpacesReportingReportLab (PDF generation)Datapandas, matplotlib
-
-Deployment
-https://ranjith445-bbbc021-moa-predictor.hf.space
-
-How to Use
-
-Open the app at the Hugging Face Spaces link above
-Select an imaging site from the dropdown in the sidebar
-Click Run Prediction
-View fluorescence channels, predicted MoA, confidence scores and GradCAM
-Download the PDF report
-
-
-Limitations
-
-Trained on Week1 subset only (372 sites, 4 MoA classes)
-Synthetic omics vectors used — no real gene expression data
-Pipeline designed to scale to full 10-week dataset (14,400 sites, 12 MoA classes)
-Not validated for clinical use
-
-
-Dataset Citation
-Ljosa V, Sokolnicki KL, Bhagavatula P, et al. Annotated high-throughput microscopy image sets for validation. Nature Methods, 2012.
-
-Author
-Built by M. Ranjith Kumar as a biomedical AI portfolio project demonstrating end-to-end fluorescence microscopy analysis for drug mechanism of action prediction.
